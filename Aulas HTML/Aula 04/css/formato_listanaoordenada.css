@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+.lista-icones {
+    list-style: none; /* Remove o marcador padrão da lista */
+    padding: 0;
+}
+.lista-icones li {
+    margin-bottom: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    display: flex; /* Permite alinhar o ícone e o texto */
+    align-items: center;
+}
+.lista-icones li:last-child {
+    border-bottom: none;
+}
+.lista-icones li img {
+    width: 24px; /* Define a largura da imagem do ícone */
+    height: 24px; /* Define a altura da imagem do ícone */
+    margin-right: 8px; /* Espaçamento entre o ícone e o texto */
+    vertical-align: middle; /* Alinha o ícone verticalmente com o texto */
+}

@@ -1,0 +1,36 @@
+p {
+    color: red;
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+#cabecalho01 {
+    color: blue;
+    font-size: 60px;
+}
+
+.paragrafoimpar {
+    color: rgb(255, 255, 255);
+    background-color: rgba(255, 81, 1, 0.147);
+    font-size: 20px;
+}
+
+.paragrafopar {
+    color: rgb(5, 5, 5);
+    background-color: rgb(165, 165, 165);
+    font-size: 20px;
+}
+
+a {
+    color: green;
+}
+
+a[href="http://www.css.com"] {
+    background-color: yellow;
+}
+
+a:hover {
+    color: red;
+}

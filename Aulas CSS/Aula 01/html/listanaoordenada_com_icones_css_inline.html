@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista com Ícones via CSS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .lista-icones {
+            list-style: none; /* Remove o marcador padrão da lista */
+            padding: 0;
+        }
+        .lista-icones li {
+            margin-bottom: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex; /* Permite alinhar o ícone e o texto */
+            align-items: center;
+        }
+        .lista-icones li:last-child {
+            border-bottom: none;
+        }
+        .lista-icones li img {
+            width: 24px; /* Define a largura da imagem do ícone */
+            height: 24px; /* Define a altura da imagem do ícone */
+            margin-right: 8px; /* Espaçamento entre o ícone e o texto */
+            vertical-align: middle; /* Alinha o ícone verticalmente com o texto */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Minha Lista de Tarefas com Ícones de Imagem (via CSS)</h1>
+
+    <ul class="lista-icones">
+        <li><img src="../icones/check_black.svg" alt="Check black"> Check black</li>
+        <li><img src="../icones/check_red.svg" alt="Check red"> Check red</li>
+        <li><img src="../icones/code_black.svg" alt="Code black"> Code black</li>
+        <li><img src="../icones/code_blue.svg" alt="Code blue"> Code blue</li>
+        <li><img src="../icones/mail_black.svg" alt="Mail black"> Mail black</li>
+        <li><img src="../icones/favorite_black.svg" alt="Favorite black"> Favorite black</li>
+        <li><img src="../icones/html_blue.svg" alt="HTML blue"> HTML blue</li>
+    </ul>
+
+</body>
+</html>

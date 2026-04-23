@@ -133,7 +133,7 @@ O projeto deve propor um serviço que:
    - evolução contínua ao longo do semestre
 3. Apresentação do projeto finalizado
 
-#### Atribuição de notas para os itens do projeto
+####  ✅ Atribuição de notas para os itens do projeto
 
 1. (2,5) Implementação da página principal em HTML e CSS semântico
 2. (2,5) Implementação da página de cadastro em HTML e CSS semântico
@@ -164,7 +164,7 @@ O projeto deve propor um serviço que:
 
 ---
 
-### Reavaliação do PROJETO
+### ✅ Reavaliação do PROJETO
 
 A reavaliação será realizada caso haja necessidade de correções após a apresentação final do projeto.
 

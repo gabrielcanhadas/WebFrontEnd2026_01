@@ -72,7 +72,7 @@ O Projeto Prático da disciplina **Programação Web Front-end** consiste no des
 
 O projeto será desenvolvido em **equipes de até 3 integrantes** e será avaliado em duas etapas:
 
-### 🔹 Etapas do Projeto
+### 🧩 Etapas do Projeto 🛠️
 
 #### 1️⃣ Projeto – HTML e CSS
 Consiste na elaboração de um website utilizando **HTML e CSS**, focando na construção do layout e estrutura das páginas.

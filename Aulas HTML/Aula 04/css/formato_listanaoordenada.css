@@ -9,7 +9,7 @@ body {
     padding: 0;
 }
 .lista-icones li {
-    margin-bottom: 10px;
+    margin-bottom: 0;
     padding: 8px 0;
     border-bottom: 1px solid #eee;
     display: flex; /* Permite alinhar o ícone e o texto */

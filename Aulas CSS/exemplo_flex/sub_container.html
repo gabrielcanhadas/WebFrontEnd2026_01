@@ -1,0 +1,52 @@
+<!--
+✔ Um container principal usando Flexbox
+✔ Um container dentro de outro container (.sub-container)
+✔ Um segundo Flexbox dentro do container interno (.itens)
+✔ Texto no topo e imagem fixada embaixo
+
+.container (flex vertical)
+ ├── .texto
+ │    ├── h1
+ │    ├── p
+ │    └── .sub-container
+ │         ├── h2
+ │         └── .itens (flex horizontal)
+ │              ├── .item
+ │              └── .item
+ └── .imagem
+      └── img
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Container dentro de Container</title>
+    <link rel="stylesheet" href="sub_container.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- TEXTO (parte superior) -->
+        <div class="texto">
+            <h1>Bem-vindo!</h1>
+            <p>Este é o texto principal no topo da página.</p>
+            <!-- CONTAINER INTERNO -->
+            <div class="sub-container">
+                <h2>Seção interna</h2>
+                <div class="itens">
+                    <div class="item">Item 1</div>
+                    <div class="item">Item 2</div>
+                </div>
+            </div>
+        </div>
+        <!-- IMAGEM (parte inferior) -->
+        <div class="imagem">
+            <img src="https://picsum.photos/600/300" alt="Imagem exemplo">
+        </div>
+    </div>
+</body>
+
+</html>

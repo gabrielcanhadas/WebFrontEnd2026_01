@@ -1,0 +1,170 @@
+<!-- 
+ 
+- Menu (header)
+- Conteúdo principal com containers aninhados
+- Flexbox em várias áreas
+- Rodapé (footer)
+- Imagem na parte inferior
+- Layout organizado
+
+* Header com menu (Flexbox horizontal)
+* Main com layout vertical (Flexbox column)
+* Container dentro de container (sub-container)
+* Cards alinhados com Flexbox interno
+* Imagem na parte inferior da área principal
+* Rodapé fixo no final da página
+
+HEADER (menu)
+MAIN (.container)
+ ├── TEXTO
+ │    └── SUB-CONTAINER
+ │         └── CARDS (flex)
+ └── IMAGEM
+FOOTER
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Completa com Flexbox</title>
+    <link rel="stylesheet" href="exemplo_melhor.css">
+</head>
+
+<body>
+
+    <!-- MENU -->
+    <header class="header">
+        <h2>Meu Site</h2>
+        <nav>
+            <a href="#">Início</a>
+            <a href="#">Sobre</a>
+            <a href="#">Contato</a>
+        </nav>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="container">
+
+        <!-- TEXTO -->
+        <section class="texto">
+            <h1>Bem-vindo!</h1>
+            <p>Este é um exemplo de página completa usando Flexbox.</p>
+
+            <!-- CONTAINER INTERNO -->
+            <div class="sub-container">
+                <h2>Destaques</h2>
+
+                <div class="cards">
+                    <div class="card">Card 1</div>
+                    <div class="card">Card 2</div>
+                    <div class="card">Card 3</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- IMAGEM -->
+        <section class="imagem">
+            <img src="https://picsum.photos/800/300" alt="Imagem exemplo">
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="footer">
+        <p>© 2026 - Meu Site | Todos os direitos reservados</p>
+    </footer>
+
+</body>
+
+</html>
+
+<!--
+* <header> → cabeçalho
+* <nav> → navegação
+* <section> → seção
+* <article> → conteúdo independente
+* <footer> → rodapé
+* <main> → conteúdo principal da página
+
+A tag <main> representa o conteúdo principal do documento, ou seja:
+-------------------------------------------------------------------
+==> Aquilo que é mais importante na página
+==> O conteúdo único daquela página
+
+Regras importantes da <main>
+----------------------------
+- Deve existir apenas uma <main> por página
+- Deve conter o conteúdo central (não duplicado)
+- Não deve incluir coisas repetidas como:
+    menus
+    rodapés
+    barras laterais (se forem repetidas no site)
+
+
+Para que serve <main>?
+----------------------
+1. Acessibilidade
+    Leitores de tela conseguem pular direto para o conteúdo principal.
+
+2. SEO (mecanismos de busca)
+    Ajuda o Google a entender o que é mais importante na página.
+
+3. Organização do código
+    Deixa o HTML mais limpo e estruturado.
+
+O que NÃO colocar dentro de <main> (Esses elementos ficam fora do <main>):
+--------------------------------------------------------------------------
+<header>
+<nav>
+<footer>
+
+Tag       |  Função
+----------+--------------------
+<header>  |  topo da página
+<nav>     |  menu
+<main>    |  conteúdo principal
+<section> |  partes do conteúdo
+<footer>  |  rodapé
+
+============================================================================
+
+Estrutura visual de uma página HTML
+
+┌──────────────────────────────┐
+│          <header>            │
+│   Logo / Título do site      │
+└──────────────────────────────┘
+
+┌──────────────────────────────┐
+│            <nav>             │
+│   Menu (Home | Sobre | etc)  │
+└──────────────────────────────┘
+
+┌──────────────────────────────┐
+│            <main>            │
+│                              │
+│   ┌──────────────────────┐   │
+│   │      <section>       │   │
+│   │  Conteúdo principal  │   │
+│   └──────────────────────┘   │
+│                              │
+│   ┌──────────────────────┐   │
+│   │      <section>       │   │
+│   │   Outra parte do     │   │
+│   │      conteúdo        │   │
+│   └──────────────────────┘   │
+│                              │
+└──────────────────────────────┘
+
+┌──────────────────────────────┐
+│          <footer>            │
+│   Rodapé (contato, direitos) │
+└──────────────────────────────┘
+
+============================================================================
+
+-->

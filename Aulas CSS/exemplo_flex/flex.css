@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Container principal */
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh; /* ocupa altura total da tela */
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Texto no topo */
+.texto {
+    padding: 20px;
+    text-align: left;
+}
+
+/* Imagem no rodapé */
+.imagem {
+    width: 100%;
+    text-align: center;
+}
+
+.imagem img {
+    max-width: 100%;
+    height: auto;
+}

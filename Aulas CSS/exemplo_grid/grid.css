@@ -1,0 +1,31 @@
+body {
+    20px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 4 colunas */
+    gap: 15px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.grid-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.grid-container img:hover {
+    transform: scale(1.05);
+}
+
+margin: 0;

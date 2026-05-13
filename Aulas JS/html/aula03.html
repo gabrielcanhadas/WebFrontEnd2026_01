@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- Define a codificação de caracteres para UTF-8 -->
+    <meta charset="UTF-8">
+    <!-- Configura a viewport para responsividade em dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título exibido na aba do navegador -->
+    <title>Lista de tarefas</title>
+    <!-- Linka o arquivo de estilos CSS -->
+    <link rel="stylesheet" href="../css/aula03.css">
+</head>
+
+<body>
+    <!-- Div que serve como cabeçalho da aplicação, estilizada pela classe 'header' -->
+    <div class="header">
+        <h2>Lista de tarefas</h2>
+        <!-- Campo de entrada de texto para a nova tarefa. O ID 'tarefa' é usado pelo JavaScript -->
+        <input type="text" id="tarefa" placeholder="Informe a tarefa">
+        <!-- Botão 'Incluir'. O evento 'onclick' chama a função JavaScript 'addElemento()' -->
+        <span onclick="addElemento()" class="addBtn">Incluir</span>
+    </div>
+    <!-- Lista não ordenada que contém as tarefas. O ID 'itemLista' é usado pelo JavaScript -->
+    <ul id="itemLista">
+        <!-- Item de exemplo com a classe 'checked', indicando que está concluído por padrão -->
+        <li class="checked">Tomar café</li>
+        <li>Fazer compras</li>
+        <li>Entregar atividade no moodle</li>
+    </ul>
+    <!-- Carrega o arquivo JavaScript, que adiciona a interatividade. Deve ser carregado no final do body -->
+    <script src="../js/aula03.js"></script>
+</body>
+
+</html>

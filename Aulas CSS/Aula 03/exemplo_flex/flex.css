@@ -6,7 +6,7 @@ body {
 /* Container principal */
 .container {
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     height: 100vh; /* ocupa altura total da tela */
     justify-content: space-between;
     align-items: center;

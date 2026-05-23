@@ -23,9 +23,10 @@ X29fWOMMJeUt0rDZK.png"
           Desenvolvimento Sustentável (ODS).
         </p>
         <h2>Conheça mais</h2>
+        <p id="local"></p>
         <p>
-          Os Objetivos de Desenvolvimento Sustentável são um apelo global à ação para acabar com a
-          pobreza, proteger o meio ambiente e o clima e garantir que as pessoas, em todos os
+          Os Objetivos de Desenvolvimento Sustentável são um apelo global à ação para acabar com
+          apobreza, proteger o meio ambiente e o clima e garantir que as pessoas, em todos os
           lugares, possam desfrutar de paz e de prosperidade.
         </p>
       </section>
@@ -34,11 +35,11 @@ X29fWOMMJeUt0rDZK.png"
       </section>
     </main>
     <script type="text/javascript">
-      //      const textos = document.getElementsByTagName("p");
-      //      console.log(textos);
-      
+      const textos = document.getElementsByTagName("p");
+      console.log(textos);
+
       function mudarCor() {
-        const elemento = document.getElementsByTagName("p")[1];
+        const elemento = document.getElementById("desc");
         if (elemento.style.color === "red") {
           elemento.style.color = ""; // volta ao original
         } else {
@@ -53,13 +54,11 @@ X29fWOMMJeUt0rDZK.png"
       //faz um append do texto ao elemento p
       novoParagrafo.appendChild(textoNovo);
       //busca uma section a partir do ID “inicio”
-      const conteudo = document.getElementById("inicio");
+      const conteudo = document.getElementById("local");
       //faz um append do parágrafo à section buscada
       conteudo.appendChild(novoParagrafo);
 
-      const meuElemento = document.getElementById("desc");
-      meuElemento.innerHTML = "Alterando o conteúdo";
-      
+      conteudo.innerHTML = "Alterando o conteúdo";
     </script>
   </body>
 </html>

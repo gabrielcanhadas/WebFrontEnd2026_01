@@ -68,7 +68,6 @@ function addElemento() {
   // Bloco de exclusão para novos itens:
   // Reitera sobre TODOS os botões 'close' (antigos e o novo) para redefinir o manipulador de eventos.
   // Isso é necessário porque o novo botão 'close' precisa ter a função 'onclick' definida.
-  // **Nota de melhoria:** Seria mais eficiente usar delegação de eventos para a exclusão também.
   for (let i = 0; i < close.length; i++) {
     close[i].onclick = function () {
       let div = this.parentElement;

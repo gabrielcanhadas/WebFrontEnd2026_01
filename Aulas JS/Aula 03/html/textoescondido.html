@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exemplo</title>
+  </head>
+
+  <style>
+    p {
+      cursor: pointer;
+      transition: opacity 0.4s;
+    }
+    .escondido {
+      opacity: 0;
+    }
+  </style>
+
+  <body>
+    <h1>Elemento H1</h1>
+    <div>Elemento div</div>
+    <p>Primeiro elemento p.</p>
+    <p>Segundo elemento p.</p>
+    <div>
+      <p>Elemento p dentro de uma div.</p>
+    </div>
+
+    <script>
+      const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+      function embaralharTexto(elemento) {
+        const textoOriginal = elemento.textContent;
+        let iteracao = 0;
+
+        const intervalo = setInterval(() => {
+          elemento.textContent = textoOriginal
+            .split("")
+            .map((letra, index) => {
+              if (index < iteracao) {
+                return textoOriginal[index];
+              }
+              return letras[Math.floor(Math.random() * letras.length)];
+            })
+            .join("");
+
+          if (iteracao >= textoOriginal.length) {
+            clearInterval(intervalo);
+            elemento.style.opacity = 0; // desaparece no final
+          }
+
+          iteracao += 0.5;
+        }, 30);
+      }
+
+      document.querySelectorAll("p").forEach((p) => {
+        let escondido = false;
+
+        p.addEventListener("mouseenter", () => {
+          if (!escondido) {
+            embaralharTexto(p);
+            escondido = true;
+          } else {
+            p.style.opacity = 1;
+            p.textContent = p.getAttribute("data-original");
+            escondido = false;
+          }
+        });
+
+        // salva o texto original
+        p.setAttribute("data-original", p.textContent);
+      });
+
+      /*
+  document.querySelectorAll("p").forEach((p) => {
+    p.addEventListener("mouseenter", () => {
+    p.classList.add("escondido");
+    });
+    p.addEventListener("mouseleave", () => {
+      p.classList.remove("escondido");
+    });
+  }
+  */
+      /*
+  document.querySelectorAll("p").forEach((p) => {
+    p.addEventListener("mouseenter", () => {
+    p.classList.toggle("escondido");
+    });
+  });
+*/
+    </script>
+  </body>
+</html>

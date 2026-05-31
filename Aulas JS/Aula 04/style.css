@@ -4,10 +4,19 @@ body {
   font-family: monospace;
   font-size: 1.1em;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
 }
 
 after {
   clear: both;
+}
+
+.container {
+  width: 100%;
+  max-width: 320px; 
+  margin: 0 auto;
 }
 
 .login {
@@ -23,6 +32,7 @@ after {
   background: #282e33;
   border-top: 3px solid #434a52;
   border-bottom: 3px solid #434a52;
+  margin: 0 auto; 
 }
 
 .login form span {
@@ -66,4 +76,43 @@ after {
   border-radius: 3px;
   color: white;
   cursor: pointer;
+}
+
+.navbar {
+  width: 100%;
+  background: #282e33;
+}
+
+.navbar ul {
+  list-style: none; 
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; 
+}
+
+.navbar li {
+  flex: 1; 
+}
+
+.navbar a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: #b174bd;
+  color: white;
+  padding: 10px 0;
+  border-radius: 3px;
+}
+
+.navbar a:hover {
+  background: #9c5aa8; 
+  transform: translateY(-2px);
+}
+
+.navbar a:hover {
+  opacity: 0.9;
+}
+
+.navbar {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }

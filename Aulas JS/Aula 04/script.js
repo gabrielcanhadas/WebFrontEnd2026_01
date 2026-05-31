@@ -118,6 +118,46 @@ function check() {
   }
 }
 
+function exportarDados() {
+  const users = localStorage.getItem("users");
+
+  if (!users) {
+    alert("Nenhum dado para exportar.");
+    return;
+  }
+
+  const nomeArquivo = prompt("Digite o nome do arquivo:", "backup-users.json");
+  if (!nomeArquivo) return;
+
+  const blob = new Blob([users], { type: "application/json" });
+  const link = document.createElement("a");
+
+  link.href = URL.createObjectURL(blob);
+  link.download = nomeArquivo.endsWith(".json") ? nomeArquivo : nomeArquivo + ".json";
+
+  link.click();
+  URL.revokeObjectURL(link.href);
+}
+
+function importarDados(file) {
+  const reader = new FileReader();
+
+  reader.onload = function (event) {
+    try {
+      const dados = JSON.parse(event.target.result);
+
+      // Salva novamente no localStorage
+      localStorage.setItem("users", JSON.stringify(dados));
+
+      alert("Dados restaurados com sucesso!");
+    } catch (erro) {
+      alert("Erro ao importar arquivo.");
+    }
+  };
+
+  reader.readAsText(file);
+}
+
 /*==================================================================
 
 INÍCIO

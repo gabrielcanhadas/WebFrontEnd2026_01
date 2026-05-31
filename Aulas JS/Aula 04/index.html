@@ -4,19 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastro</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
-    <h1>Local Storage</h1>
-    <nav class="navbar">
-      <div class="container">
-        <ul>
-          <li><a onclick="exportarDados()">Backup</a></li>
-          <li><a onclick="document.getElementById('fileInput').click()">Restaurar</a></li>
-        </ul>
-      </div>
-    </nav>
-    <!-- input escondido continua existindo -->
+    <!-- Cabeçalho -->
+    <header>
+      <h1>Local Storage</h1>
+      <nav class="navbar">
+        <div class="container">
+          <ul>
+            <li><a onclick="exportarDados()">Backup</a></li>
+            <li>
+              <a onclick="document.getElementById('fileInput').click()"> Restaurar </a>
+            </li>
+            <li><a onclick="listarUsuarios()">Lista de usuários</a></li>
+            <li><a onclick="apagarTudo()">Apagar tudo</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- input escondido -->
     <input
       type="file"
       id="fileInput"
@@ -24,34 +33,64 @@
       style="display: none"
       onchange="importarDados(this.files[0])"
     />
-    <div class="container">
-      <div class="login">
-        <form name="form-login">
-          <h1>CADASTRO</h1>
+
+    <!-- Conteúdo principal -->
+    <main class="container">
+      <!-- Cadastro -->
+      <section class="login">
+        <form>
+          <h2>Cadastro</h2>
+
           <label for="name">Email</label>
           <input type="email" id="name" placeholder="Email" required />
+
           <label for="pw">Senha</label>
           <input type="password" id="pw" placeholder="Senha" required />
-          <ul class="helper-text">
-            <li class="length">Deve conter até 8 caracteres.</li>
-            <li class="lowercase">Deve conter ao menos uma letra minuscula.</li>
-            <li class="uppercase">Deve conter ao menos uma letra maiuscula.</li>
-          </ul>
-          <input id="rgstr_btn" type="submit" value="Cadastrar" onclick="store()" />
-        </form>
-      </div>
 
-      <div class="login">
-        <form name="form-login">
-          <h1>LOGIN</h1>
+          <ul class="helper-text">
+            <li>Deve conter até 8 caracteres.</li>
+            <li>Deve conter ao menos uma letra minúscula.</li>
+            <li>Deve conter ao menos uma letra maiúscula.</li>
+          </ul>
+
+          <input type="submit" value="Cadastrar" onclick="store()" />
+        </form>
+      </section>
+
+      <!-- Login -->
+      <section class="login">
+        <form>
+          <h2>Login</h2>
+
           <label for="userName">Email</label>
           <input type="email" id="userName" placeholder="Email" required />
+
           <label for="userPw">Senha</label>
           <input type="password" id="userPw" placeholder="Senha" required />
-          <input id="login_btn" type="submit" value="Login" onclick="check()" />
+
+          <input type="submit" value="Login" onclick="check()" />
         </form>
-      </div>
-    </div>
+      </section>
+
+      <!-- Lista de usuários -->
+      <section>
+        <h2>Lista de Usuários</h2>
+
+        <table id="tabelaUsuarios">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Email</th>
+              <th>Senha</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- preenchido via JS -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
   </body>
-  <script src="script.js"></script>
 </html>

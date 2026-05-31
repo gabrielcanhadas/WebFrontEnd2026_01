@@ -158,6 +158,42 @@ function importarDados(file) {
   reader.readAsText(file);
 }
 
+function listarUsuarios() {
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const tbody = document.querySelector("#tabelaUsuarios tbody");
+
+  tbody.innerHTML = ""; // limpa tabela antes
+
+  if (users.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="3">Nenhum usuário cadastrado</td></tr>`;
+    return;
+  }
+
+  users.forEach((u, index) => {
+    const linha = `
+      <tr>
+        <td>${index + 1}</td>
+        <td>${u.email}</td>
+        <td>****</td>
+      </tr>
+    `;
+    tbody.innerHTML += linha;
+  });
+}
+
+function apagarTudo() {
+  const confirmar = confirm("Tem certeza que deseja apagar TODOS os usuários?");
+  if (!confirmar) return;
+
+  localStorage.removeItem("users");
+
+  // limpa tabela visual
+  const tbody = document.querySelector("#tabelaUsuarios tbody");
+  tbody.innerHTML = `<tr><td colspan="3">Nenhum usuário cadastrado</td></tr>`;
+
+  alert("Todos os dados foram apagados.");
+}
+
 /*==================================================================
 
 INÍCIO

@@ -6,7 +6,7 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
 }
 
 after {
@@ -15,7 +15,7 @@ after {
 
 .container {
   width: 100%;
-  max-width: 320px; 
+  max-width: 320px;
   margin: 0 auto;
 }
 
@@ -32,7 +32,7 @@ after {
   background: #282e33;
   border-top: 3px solid #434a52;
   border-bottom: 3px solid #434a52;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 
 .login form span {
@@ -84,14 +84,16 @@ after {
 }
 
 .navbar ul {
-  list-style: none; 
+  list-style: none;
   display: flex;
   justify-content: space-between;
-  gap: 20px; 
+  gap: 10px;
+  padding: 0;
+  margin: 10px 0;
 }
 
 .navbar li {
-  flex: 1; 
+  flex: none;
 }
 
 .navbar a {
@@ -105,7 +107,7 @@ after {
 }
 
 .navbar a:hover {
-  background: #9c5aa8; 
+  background: #9c5aa8;
   transform: translateY(-2px);
 }
 
@@ -115,4 +117,25 @@ after {
 
 .navbar {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  background: #282e33;
+  color: white;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+table th,
+table td {
+  padding: 10px;
+  text-align: left;
+  padding-left: 15px;
+}
+
+table th {
+  background: #3b4148;
 }

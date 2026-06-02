@@ -11,8 +11,13 @@ window.onload = function () {
 };
 */
 
+/*========================================
+  VALIDAÇÃO DE EMAIL
+  ========================================
+  Valida se o email está no formato correto
+  e retorna true ou false
+*/
 function validarEmail(email) {
-  // Regex para validar email
   const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (email.length === 0) {
@@ -74,74 +79,27 @@ function store() {
   const name = document.getElementById("name");
   const pw = document.getElementById("pw");
 
-  // Validar email primeiro
+  // Validar email
   if (!validarEmail(name.value)) {
     return;
   }
 
-  // Validar senha usando função dedicada
+  // Validar senha
   if (!validarSenha(pw.value)) {
     return;
   }
+
   let users = JSON.parse(localStorage.getItem("users")) || [];
-  /*----------------------------
-      Ler usuários do localStorage
-      ----------------------------
-      → localStorage.getItem("users") → pega os dados salvos (vem como texto)
-        JSON.parse(...)               → transforma esse texto em array de objetos
-        || []                         → se não existir nada, usa um array vazio
-
-      "Pegue os usuários salvos no navegador. 
-       Se não existir nada, comece com uma lista vazia."
-
-    */
-
   const existe = users.find((u) => u.email === name.value);
-  /*-------------------------------
-      Verificar se o e-mail já existe
-      -------------------------------
-      → Percorre a lista users
-        Procura um usuário (u) onde: u.email === name.value
-        Se encontrar      → retorna o usuário
-        Se não encontrar  → retorna undefined
 
-      .find() é um método de arrays que:
-      ----------------------------------
-      → percorre todos os itens da lista
-      → retorna o primeiro elemento que atende a uma condição
-      
-      → (u) => u.email === name.value
-        significa: "para cada usuário (u), verifique se u.email é igual ao valor do campo name"
-      
-      → (u) é o nome dado para a variável que representa cada item da lista durante a busca, 
-        pode ser qualquer nome, mas "u" é comum para representar "user"
-    /*
+  // Regra do gmail: remover usuário gmail anterior
+  if (name.value.includes("@gmail.com") && existe) {
+    users = users.filter((u) => u.email !== name.value);
+    localStorage.setItem("users", JSON.stringify(users));
+    alert("Usuário gmail removido do armazenamento.");
+    return;
+  }
 
-    //regra do gmail
-    //-----------------
-    if (name.value.includes("@gmail.com") && existe) {
-      users = users.filter((u) => u.email !== name.value);
-      localStorage.setItem("users", JSON.stringify(users));
-      alert("Usuário gmail removido do armazenamento.");
-      return;
-    }
-
-    /*------------------------------------------
-      Código          O que faz
-      ------------------------------------------
-      JSON.parse      transforma texto em objeto
-      JSON.stringify  transforma objeto em texto
-      find()	        procura algo no array
-      push()	        adiciona novo item
-      localStorage	  guarda dados no navegador
-
-      → JSON = JavaScript Object Notation
-        ---------------------------------
-          É um formato de texto que representa objetos e arrays
-
-          JSON.stringify()   transforma objeto → texto
-          JSON.parse()       transforma texto → objeto
-    */
   if (!existe) {
     users.push({
       email: name.value,
@@ -160,12 +118,12 @@ function check() {
   const userName = document.getElementById("userName");
   const userPw = document.getElementById("userPw");
 
-  // Validar email primeiro
+  // Validar email
   if (!validarEmail(userName.value)) {
     return;
   }
 
-  // Validar campo de senha não vazio
+  // Validar senha não vazia
   if (userPw.value.length === 0) {
     alert("Informe uma senha");
     return;
@@ -195,21 +153,13 @@ function exportarDados() {
   if (!nomeArquivo) return;
 
   // Criar arquivo com a string JSON
-  // Blob representa um pacote de dados em memoria.
-  // Aqui ele transforma a string JSON em um "arquivo" temporario
-  // que o navegador consegue baixar.
   const blob = new Blob([users], { type: "application/json" });
   const link = document.createElement("a");
 
   link.href = URL.createObjectURL(blob);
-  // endsWith(".json") verifica se o nome ja termina com .json.
-  // Se terminar, usa o nome como esta; se nao, adiciona .json no final.
-  // Isso evita nomes como backup-users.json.json.
   link.download = nomeArquivo.endsWith(".json") ? nomeArquivo : nomeArquivo + ".json";
 
   link.click();
-  // URL.revokeObjectURL libera da memoria a URL temporaria criada acima.
-  // Depois que o click iniciou o download, essa URL nao precisa continuar ativa.
   URL.revokeObjectURL(link.href);
 }
 
@@ -219,9 +169,6 @@ function importarDados(file) {
   reader.onload = function (event) {
     try {
       // Ler arquivo como string JSON
-      // event.target e o FileReader que terminou de ler o arquivo.
-      // event.target.result contem o resultado da leitura.
-      // Como usamos readAsText(file), o resultado vem como texto.
       const jsonString = event.target.result;
 
       // Validar se é JSON válido fazendo parse
@@ -280,79 +227,3 @@ function apagarTudo() {
 
   alert("Todos os dados foram apagados permanentemente.");
 }
-
-/*==================================================================
-
-INÍCIO
-  ↓
-Ler usuários do localStorage
-  ↓
-users existe?
-  ↓
-  NÃO → users = []
-  SIM → users = lista de usuários
-  ↓
-Procurar usuário com mesmo email (.find)
-  ↓
-Encontrou?
-  ↓
-┌───────────────┬────────────────┐
-│ NÃO           │ SIM            │
-│ (undefined)   │ (objeto)       │
-└───────────────┴────────────────┘
-       ↓                 ↓
-Criar novo usuário   Mostrar alerta:
-(users.push)         "já cadastrado"
-        ↓
-Salvar no localStorage
-        ↓
-FIM
-
-==================================================================
-
-Situação 1: PRIMEIRA VEZ
-------------------------
-
-users = []
-
-Fluxo:
-------
-
-.find() começa
-  ↓
-Array está vazio?
-  ↓
-SIM
-  ↓
-Não percorre nada
-  ↓
-Retorna undefined
-
-==================================================================
-
-Situação 2: JÁ EXISTE USUÁRIO
------------------------------
-
-users = [
-  { email: "a@gmail.com", senha: "123" }
-]
-
-Fluxo:
-------
-
-.find() começa
-  ↓
-Pega primeiro usuário
-  ↓
-u.email === name.value ?
-  ↓
-┌───────────────┬────────────────┐
-│ NÃO           │ SIM            │
-└───────────────┴────────────────┘
-      ↓                 ↓
-Próximo item         RETORNA usuário
-      ↓
-(se acabar)
-RETORNA undefined
-
-*/

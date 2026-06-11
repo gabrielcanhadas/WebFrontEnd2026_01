@@ -1,21 +1,6 @@
+/* ===== Estilos gerais ===== */
 * {
   box-sizing: border-box;
-}
-
-header {
-  width: 100%;
-  background: #282e33;
-  padding: 10px 0 0 0;
-  text-align: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-header h1 {
-  margin: 0 0 15px 0;
-  color: #b174bd;
-  font-size: 2em;
-  text-transform: uppercase;
-  letter-spacing: 2px;
 }
 
 body {
@@ -39,6 +24,66 @@ after {
   margin: 0 auto;
 }
 
+/* ===== Cabecalho ===== */
+header {
+  width: 100%;
+  background: #282e33;
+  padding: 10px 0 0 0;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+  margin: 0 0 15px 0;
+  color: #b174bd;
+  font-size: 2em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* ===== Menu de navegacao ===== */
+.navbar {
+  width: 100%;
+  background: #282e33;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.navbar .container {
+  max-width: 700px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.navbar li {
+  flex: none;
+}
+
+.navbar a {
+  display: block;
+  text-align: center;
+  background: #b174bd;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 3px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background: #9c5aa8;
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* ===== Formularios de cadastro e login ===== */
 .login {
   margin: 50px auto;
   width: 100%;
@@ -97,47 +142,7 @@ after {
   cursor: pointer;
 }
 
-.navbar {
-  width: 100%;
-  background: #282e33;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.navbar .container {
-  max-width: 700px;
-}
-
-.navbar ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px;
-  margin: 0;
-  flex-wrap: wrap;
-}
-
-.navbar li {
-  flex: none;
-}
-
-.navbar a {
-  display: block;
-  text-align: center;
-  background: #b174bd;
-  color: white;
-  padding: 10px 14px;
-  border-radius: 3px;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.navbar a:hover {
-  background: #9c5aa8;
-  transform: translateY(-2px);
-  opacity: 0.9;
-}
-
+/* ===== Tabela de usuarios ===== */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -159,6 +164,7 @@ table th {
   background: #3b4148;
 }
 
+/* ===== Rodape ===== */
 footer {
   width: 100%;
   background: #282e33;

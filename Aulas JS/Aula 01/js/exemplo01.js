@@ -1,17 +1,28 @@
 const entrada = document.getElementById("entrada_dados");
 const demo = document.getElementById("demo");
-entrada.addEventListener('input', () => {
-    let texto = entrada.value;
-    demo.textContent = "Texto digitado: " + texto;
+
+function validarSomenteLetras(texto) {
+  return /^[A-Za-zÀ-ÿ\s]+$/.test(texto);
+}
+
+entrada.addEventListener("input", () => {
+  let texto = entrada.value;
+
+  if (!validarSomenteLetras(texto) && texto.length > 0) {
+    entrada.value = texto.replace(/[^A-Za-zÀ-ÿ\s]/g, "");
+    texto = entrada.value;
+  }
+
+  demo.textContent = "Texto digitado: " + texto;
 });
 
 //-------------------------------------------------------------------------------------------------
 
 const posicaoMouse = document.getElementById("pos_mouse");
-document.addEventListener('mousemove', (event) => {
-    const mouseX = event.clientX;
-    const mouseY = event.clientY;
-    posicaoMouse.textContent = `Posição X,Y do mouse: (${mouseX}, ${mouseY})`;
+document.addEventListener("mousemove", (event) => {
+  const mouseX = event.clientX;
+  const mouseY = event.clientY;
+  posicaoMouse.textContent = `Posição X,Y do mouse: (${mouseX}, ${mouseY})`;
 });
 
 //-------------------------------------------------------------------------------------------------
@@ -63,46 +74,46 @@ Alt + V: Muda o fundo para Verde.
 Ctrl + Shift + R: Reseta a cor de fundo para a original.
 */
 
-const rodape = document.getElementById('rodape');
+const rodape = document.getElementById("rodape");
 const corpoDaPagina = document.body;
 const corOriginal = corpoDaPagina.style.backgroundColor; // Guarda a cor inicial
-document.addEventListener('keydown', (event) => {
-    // Para atalhos, é comum querermos impedir o comportamento padrão do navegador.
-    // Ex: Ctrl+A normalmente seleciona todo o texto.
-    // event.preventDefault(); // Descomente se quiser bloquear a ação padrão.
-    const tecla = event.key.toLowerCase();
-    let mensagem = `Pressionado: `;
-    // Constrói a mensagem dinamicamente
-    if (event.ctrlKey) mensagem += 'Ctrl + ';
-    if (event.shiftKey) mensagem += 'Shift + ';
-    if (event.altKey) mensagem += 'Alt + ';
-    mensagem += tecla;
-    rodape.textContent = mensagem;
-    // --- Lógica dos Atalhos ---
-    // Atalho para Resetar (Ctrl + Shift + R)
-    if (event.ctrlKey && event.shiftKey && tecla === 'r') {
-        event.preventDefault(); // Impede o recarregamento forçado da página
-        corpoDaPagina.style.backgroundColor = corOriginal;
-        rodape.textContent = 'Cor resetada!';
-    }
-    // Atalho para Azul (Ctrl + A)
-    else if (event.ctrlKey && tecla === 'a') {
-        event.preventDefault(); // Impede a seleção de todo o texto
-        corpoDaPagina.style.backgroundColor = '#95ebf1ff';
-    }
-    // Atalho para Verde (Alt + V)
-    else if (event.altKey && tecla === 'v') {
-        event.preventDefault();
-        corpoDaPagina.style.backgroundColor = '#a4f090ff';
-    }
-    // Atalho para Cinza (Shift + C)
-    else if (event.shiftKey && tecla === 'c') {
-        corpoDaPagina.style.backgroundColor = '#c2c1c1ff';
-    }
-    // Atalho para Branco simples (apenas B)
-    else if (tecla === 'b') {
-        corpoDaPagina.style.backgroundColor = 'white';
-    }
+document.addEventListener("keydown", (event) => {
+  // Para atalhos, é comum querermos impedir o comportamento padrão do navegador.
+  // Ex: Ctrl+A normalmente seleciona todo o texto.
+  // event.preventDefault(); // Descomente se quiser bloquear a ação padrão.
+  const tecla = event.key.toLowerCase();
+  let mensagem = `Pressionado: `;
+  // Constrói a mensagem dinamicamente
+  if (event.ctrlKey) mensagem += "Ctrl + ";
+  if (event.shiftKey) mensagem += "Shift + ";
+  if (event.altKey) mensagem += "Alt + ";
+  mensagem += tecla;
+  rodape.textContent = mensagem;
+  // --- Lógica dos Atalhos ---
+  // Atalho para Resetar (Ctrl + Shift + R)
+  if (event.ctrlKey && event.shiftKey && tecla === "r") {
+    event.preventDefault(); // Impede o recarregamento forçado da página
+    corpoDaPagina.style.backgroundColor = corOriginal;
+    rodape.textContent = "Cor resetada!";
+  }
+  // Atalho para Azul (Ctrl + A)
+  else if (event.ctrlKey && tecla === "a") {
+    event.preventDefault(); // Impede a seleção de todo o texto
+    corpoDaPagina.style.backgroundColor = "#95ebf1ff";
+  }
+  // Atalho para Verde (Alt + V)
+  else if (event.altKey && tecla === "v") {
+    event.preventDefault();
+    corpoDaPagina.style.backgroundColor = "#a4f090ff";
+  }
+  // Atalho para Cinza (Shift + C)
+  else if (event.shiftKey && tecla === "c") {
+    corpoDaPagina.style.backgroundColor = "#c2c1c1ff";
+  }
+  // Atalho para Branco simples (apenas B)
+  else if (tecla === "b") {
+    corpoDaPagina.style.backgroundColor = "white";
+  }
 });
 
 /*

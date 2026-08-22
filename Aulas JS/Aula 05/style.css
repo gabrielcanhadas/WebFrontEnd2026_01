@@ -1,5 +1,5 @@
 /* =========================
-   Estilos gerais
+   Base geral
    ========================= */
 body {
   background: white;
@@ -14,7 +14,7 @@ after {
 }
 
 /* =========================
-   Navegacao
+   Componentes de navegacao
    ========================= */
 .btn-nav {
   background: #b174bd;
@@ -28,13 +28,14 @@ after {
 }
 
 /* =========================
-   Formularios de cadastro e login
+   Area de login
    ========================= */
 .login {
   margin: 50px auto;
   width: 320px;
 }
 
+/* Formulario de login */
 .login form {
   margin: auto;
   padding: 22px 22px 22px 22px;
@@ -45,6 +46,7 @@ after {
   border-bottom: 3px solid #434a52;
 }
 
+/* Icones/labels dos campos */
 .login form span {
   background-color: #363b41;
   border-radius: 3px 0px 0px 3px;
@@ -58,6 +60,7 @@ after {
   height: 50px;
 }
 
+/* Campos de entrada */
 .login form input[type="email"],
 .login form input[type="password"] {
   background-color: #3b4148;
@@ -69,6 +72,7 @@ after {
   height: 50px;
 }
 
+/* Botao de envio */
 .login form input[type="submit"] {
   background: #b174bd;
   border: 0;
@@ -82,6 +86,8 @@ after {
 /* =========================
    Pagina de apresentacao
    ========================= */
+
+/* Base da pagina */
 body.apresentacao {
   margin: 0;
   font-family: monospace;
@@ -89,12 +95,29 @@ body.apresentacao {
   color: #f3f4f6;
 }
 
+/* Estrutura principal */
 .apresentacao .container {
   max-width: 980px;
   margin: 0 auto;
   padding: 32px 16px;
 }
 
+/* Navegacao da pagina de apresentacao */
+.apresentacao nav {
+  padding: 12px 16px;
+  text-align: right;
+  background: #111827;
+  border-bottom: 1px solid #374151;
+}
+
+.apresentacao nav a {
+  margin-top: 0;
+  color: #bfdbfe;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Textos e links */
 .apresentacao h1 {
   margin-bottom: 8px;
   color: #f9a8d4;
@@ -116,7 +139,7 @@ body.apresentacao {
   text-decoration: underline;
 }
 
-/* Caixa que define a largura da janela do video */
+/* Area do video */
 .apresentacao .player-box {
   width: 480px;
   max-width: 100%;
@@ -127,7 +150,11 @@ body.apresentacao {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
-/* Video ocupa a largura da caixa e define a altura */
+.apresentacao .player-box p {
+  margin-top: 10px;
+  font-size: 0.95em;
+}
+
 .apresentacao video {
   width: 100%;
   height: 270px;

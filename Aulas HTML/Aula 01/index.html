@@ -1,19 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt_br">
-
-<head>
+  <head>
     <title>Minha página</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
     <title>Documento</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <h1>Minha primeira página web</h1>
     <p>Aprendendo a utilizar HTML.</p>
     <p>Utilize Alt+L Alt+O para executar com o LiveServer</p>
-</body>
 
+    <h2>Formulário de exemplo</h2>
+    <form action="#" method="post">
+      <p>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required />
+      </p>
+      <p>
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required />
+      </p>
+      <p>
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required />
+      </p>
+      <p>
+        <label for="nascimento">Data de nascimento:</label>
+        <input type="date" id="nascimento" name="nascimento" />
+      </p>
+      <p>
+        <label for="mensagem">Mensagem:</label>
+        <textarea id="mensagem" name="mensagem" rows="4" cols="30"></textarea>
+      </p>
+      <button type="submit">Enviar</button>
+    </form>
+  </body>
 </html>
 <!-- 
 Edição e Linhas
